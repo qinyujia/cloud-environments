@@ -12,8 +12,7 @@ cleanup:
     helm.sh/hook: pre-delete
     helm.sh/hook-delete-policy: hook-succeeded
 
-
-jenkins-x-mongodb:
+mongodb:
   service:
     annotations:
       fabric8.io/expose: "true"
