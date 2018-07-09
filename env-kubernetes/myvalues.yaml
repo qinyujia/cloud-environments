@@ -12,16 +12,6 @@ cleanup:
     helm.sh/hook: pre-delete
     helm.sh/hook-delete-policy: hook-succeeded
 
-mongodb:
-  service:
-    annotations:
-      fabric8.io/expose: "true"
-  persistence:
-    storageClass: "alicloud-disk-available"
-    accessMode: 'ReadWriteOnce'
-    enabled: true
-    size: 20Gi
-
 docker-registry:
   service:
     annotations:
@@ -77,6 +67,12 @@ chartmuseum:
 monocular:
     ingress:
       enabled: false
+    mongodb:
+      persistence:
+        storageClass: "alicloud-disk-available"
+        accessMode: 'ReadWriteOnce'
+        enabled: true
+        size: 20Gi  
     api:
       livenessProbe:
         initialDelaySeconds: 360
